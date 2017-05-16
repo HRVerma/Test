@@ -1,0 +1,35 @@
+
+* { box-sizing:border-box; }
+
+/* form starting stylings ------------------------------- */
+.group 			  { 
+  position:relative; 
+  xmargin-bottom:45px; 
+}
+input[type="text"]{ 
+  padding:5px 5px 5px 0px;
+  border:0px;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#999; 
+  font-size:14px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:0px;
+  top:5px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-7px;
+  left:0px;
+  font-size:11px;
+  color:#5264AE;
+}

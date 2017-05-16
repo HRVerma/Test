@@ -1,0 +1,81 @@
+﻿<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-brand logo-header" href="#">Play Poker</a> </div>
+        <div id="navbar" class="navbar-collapse collapse nav navbar-right" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <!-- /.nav-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<!-- /.navbar -->
+
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-12">
+            <div>
+                <br><br>
+            </div>
+            <div class="row login-col-xs">
+                <div class="col-xs-6 col-lg-6 text-center">
+                    <!--<h3>Heading</h3>-->
+                    <img src="../../app/static/images/Agile.png" class="img-responsive" >
+                    <div class="card-text">
+                        <h3 class="text-size">How does Play Poker work?</h3>
+                    </div>
+                    <p>The idea behind Planning Poker is simple. Individual stories are presented for estimation. After a period of discussion, each participant chooses from his own deck the numbered card that represents his estimate of how much work is involved in the story under discussion. <!--All estimates are kept private until each participant has chosen a card. At that time, all estimates are revealed and discussion can begin again.--></p>
+                </div>
+                <!--/.col-xs-6.col-lg-4-->
+                <div class="col-xs-6 col-lg-6 exist-user-login">
+                    <h3 class="margin-top-bottom">Existing User Login</h3>
+                    <form class="form-txt-color" role="form" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+                            <div class="input-group width100">
+                                <input type="text" name="userName" [(ngModel)]="model.userName" #userName="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+                                <label for="uLogin" class="input-group-addon glyphicon glyphicon-envelope"></label>
+                                <div *ngIf="f.submitted && !userName.valid" class="help-block">Email Address is required</div>
+                                <label><sup>*</sup>Email Address</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                            <div class="input-group width100">
+                                <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+                                <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
+                                <label><sup>*</sup>Password</label>
+                                <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                            </div>
+                        </div>
+
+                        <div class="marg-top20">
+                            <!--<button type="submit" class="btn btn-primary">Login »</button>-->
+                            <button type="submit" class="btn btn-primary">Login »</button>
+                            &nbsp;&nbsp;<span class="inline"></span>&nbsp;<span class="inline pull-right line-33">
+                <a [routerLink]="['/register']" class="blue-txt-color sign-up"><strong>SignUp »</strong></a></span>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+            <!--/row-->
+        </div>
+        <!--/.col-xs-12.col-sm-12-->
+
+    </div>
+    <!--/row-->
+    <br><br>
+    <hr>
+    <footer class="text-center">
+        <p>© Xavient Information Systems, Inc. 2017</p>
+    </footer>
+</div>
+
+

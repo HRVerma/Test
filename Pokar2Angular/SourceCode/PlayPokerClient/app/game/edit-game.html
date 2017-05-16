@@ -1,0 +1,155 @@
+<h3 class="margin-top-bottom">Edit Game</h3>
+<div class="form-txt-color grid-data-container">
+    <form [formGroup]="myForm" name="form" (ngSubmit)="editGame(myForm.value)" #f="ngForm" class="form-txt-color">
+        <div class="form-group fname-sec">
+            <div class="input-group width-full">
+                <input type="text" formControlName="gameName"  required>
+                <input type="hidden" formControlName="gameId">
+                <label><sup>*</sup>Game Name</label>
+            </div>
+        </div>
+        <!-- /.form-group -->
+        <div class="form-group fname-sec">
+            <div class="input-group  width-full">
+                <input type="text" formControlName="description"  required>
+                <label><sup>*</sup>Description</label>
+            </div>
+        </div>
+        <!-- /.form-group -->
+        <div class="form-group fname-sec">
+            <div class="input-group  width-full">
+                <input type="text" formControlName="teamVelocity"  required>
+                <label><sup>*</sup>Team Velocity</label>
+            </div>
+        </div>
+        <!-- /.form-group -->
+
+        <!--div class="checkbox margin-btm-10">
+        <div>Share the velocity with all players?</div>
+          <label class="label-first"><input type="radio" formControlName="shareVelocity"  [value]="1" /> Yes</label>
+          <label class="label-last"><input type="radio" formControlName="shareVelocity" [value]="0"  /> No</label>
+
+        </div>
+
+        <div class="checkbox margin-btm-10">
+        <div>Are you also effort pointing?</div>
+          <label class="label-first"><input type="radio" formControlName="effortEstimation" [value]="1"  /> Yes, please deal me cards</label>
+          <label class="label-last"><input type="radio" formControlName="effortEstimation" [value]="0"  /> No, I'm just a dealer</label>
+        </div-->
+
+        <div class="checkbox margin-btm-10">
+            <div><sup>*</sup>Choose your card set:</div>
+            <select formControlName="deckId" required>
+                <option value="">Please Select Deck Id</option>
+                <option *ngFor="let deck of decks" value= {{deck.deckid}} [selected]="deck.deckid==game?.deckId">
+                    {{deck.deckType}}-{{deck.series}}
+                </option>
+            </select>
+            <!--<label class="label-first"><input type="radio" formControlName="deckId"  [value]="1"/> Fibonacci ( 0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ?, Pass, break )</label><br>
+            <label class="label-last"><input type="radio" formControlName="deckId" [value]="0" /> Modified Fibonacci ( 0, ½, 1, 2, 3, 5, 8, 13, 20, 40, 100, ?, Pass, break )</label><br>
+            <label class="label-first"><input type="radio" formControlName="deckId" [value]="1" /> T-shirts ( xxs, xs, s, m, l, xl, xxl, ?, Pass, break )</label><br>
+            <label class="label-last"><input type="radio"  formControlName="deckId" [value]="0" /> Powers of 2 ( 0, 1, 2, 4, 8, 16, 32, 64, ?, Pass, break )</label><br>
+            <label class="label-first"><input type="radio" formControlName="deckId" [value]="1" /> Upgrade to build a custom pointing scale</label>
+            -->
+        </div>
+
+        <!--div class="checkbox margin-btm-10">
+        <div>Would you like to auto-flip the cards after everyone has voted?</div>
+          <label class="label-first"><input type="radio" formControlName="autoFlip" [value]="1" /> Yes</label>
+          <label class="label-last"><input type="radio"  formControlName="autoFlip" [value]="0" /> No</label>
+        </div>
+
+        <div class="checkbox margin-btm-10">
+        <div>Would you like to allow players to change their vote after reveal?</div>
+          <label class="label-first"><input type="radio" formControlName="voteAfterReveal" [value]="1" /> Yes</label>
+          <label class="label-last"><input type="radio"  formControlName="voteAfterReveal" [value]="0" /> No</label>
+        </div>
+
+        <div class="checkbox margin-btm-10">
+        <div>Would you like to calculate the score?</div>
+          <label class="label-first"><input type="radio" formControlName="calculateScore" [value]="1" /> Yes</label>
+          <label class="label-last"><input type="radio"  formControlName="calculateScore" [value]="0" /> No</label>
+        </div>
+
+        <div class="checkbox margin-btm-10">
+        <div>Would you like a story timer?</div>
+          <label class="label-first"><input type="radio" formControlName="storyTimer" [value]="1" /> Yes</label>
+          <label class="label-last"><input type="radio"  formControlName="storyTimer" [value]="0" /> No</label>
+        </div-->
+
+        <h4>Enter Stories:</h4>
+        <div>
+            <!--<ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#storyInput">Freeform Story Input</a></li>
+              <li><a data-toggle="tab" href="#importStory">Import Stories</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="storyInput" class="tab-pane fade in active">
+                <div class="margin-tb-10"><textarea rows="7" class="input-group input-txtarea" placeholder="Put each story on its own line, separated by Return/Enter"></textarea></div>
+                <button type="submit" class="btn btn-warning">Convert to Stories</button>
+              </div>
+              <div id="importStory" class="tab-pane fade">
+                <div class="margin-tb-10">
+                 Oops! Importing stories from Jira or .csv is only available to Pro users
+                </div>
+              </div>
+              <br>
+            </div-->
+            <div formArrayName="stories">
+                <div *ngFor="let address of myForm.controls.stories.controls; let i=index">
+                    <div>
+
+                        <div class="col-xs-12 col-md-2 col-lg-2"><span class="storyId">Story {{i + 1}}</span></div>
+                        <div class="col-xs-12 col-md-9 col-lg-9">
+                    <span  [formGroupName]="i">
+                        <div class="form-group fname-sec width-35">
+                            <div class="input-group width-full-100">
+                                <input type="text" formControlName="storyTitle" required>
+                                <label><sup>*</sup>Story Title</label>
+                            </div>
+                        </div>
+                        <!-- /.form-group -->
+                        <div class="form-group fname-sec width-60">
+                            <div class="input-group  width-full-100">
+                                <input type="text" formControlName="storyDescription" required>
+                                <label><sup>*</sup>Description</label>
+                            </div>
+                        </div>
+                        <!-- /.form-group -->
+                        <!--<div class="form-group fname-sec width-33">
+                          <div class="input-group  width-full">
+                            <input type="text" formControlName="criteria" required>
+                            <label><sup>*</sup>Criteria</label>
+                          </div>
+                        </div>-->
+                    </span>
+                        </div>
+                        <div class="col-xs-12 col-md-1 col-lg-1"><span class="glyphicon glyphicon-remove" *ngIf="myForm.controls.stories.controls.length > 1" (click)="removeAddress(i)"></span></div>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+                <!-- /.form-group -->
+                <br clear="all">
+            </div>
+            <div class="margin-20">
+                <a (click)="addAddress()" style="cursor: default">
+                    Add another Story +
+                </a>
+            </div>
+        </div>
+        <div class="marg-top20 text-center">
+            <button type="submit" class="btn btn-primary" (click)="cancel()">Cancel</button>
+            &nbsp;
+            <button type="submit" class="btn btn-primary">Save</button>
+            &nbsp;
+            <!--button type="submit" class="btn btn-primary">Save & Start</button-->
+        </div>
+    </form>
+    <br clear="all">
+</div>

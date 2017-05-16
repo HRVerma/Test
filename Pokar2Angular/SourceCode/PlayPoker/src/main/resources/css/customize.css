@@ -1,0 +1,72 @@
+
+body{background:/*#59000a*/ url(../images/3d-maroon-background-vector.webp) repeat center 0; color:#fff;}
+.form-txt-color{background: #fff; padding: 25px 40px; border-radius: 12px;color:#222;}
+.logo-header{color:#fff !important;font-size:27px;}
+.input-group-addon img{height:17px;}
+.card-text{position:relative; margin-top:-60px;margin-bottom:50px;}
+.margin-top-bottom {
+    margin-bottom: 20px;
+	font-size:18px;
+}
+.margin-top20{margin-top:20px;}
+.input-group {
+    margin-bottom: 20px;
+}
+.input-group {
+    border-bottom: 1px solid #e6e7eb;
+}
+.input-group-addon {
+    border: 0px;
+    background: none;
+    padding-right: 0px;
+}
+.glyphicon {
+    color: #8395a9;
+}
+.prefix-sec {
+    float: left;
+    margin-right: 5%;
+    width: 20%;
+}
+.form-group {
+    margin-bottom: 25px;
+}
+.input-group sup {
+    color: #ff0000;
+    top: -.1em;
+    font-size: 15px;
+}
+.login-col-xs input[type="text"]{width:100%;}
+.input-group input[type='text'].no-star {
+    padding-left: 0px !important;
+    color: #000;
+}
+.new-user-login .input-group{width:100%;}
+.line-33{line-height:33px;}
+.text-size{font-size:21px;}
+.exist-user-login, .new-user-login{max-width:500px;float:right}
+ul.top-btn li{display:inline-block;}
+
+.padding-lr-0{padding-left:0px; padding-right:0px;}
+.grid-data-container{background: #fff; padding: 10px 15px !important; border-radius: 12px;color:#222;}
+.grid-data{padding:0px;}
+.grid-data div{font-weight:bold;}
+.grid-data li{display:inline-block;padding:0px;}
+.grid-data .li-one{width:18%;}
+.grid-data .li-two{width:50%;}
+.grid-data .li-three{width:30%;}
+.para-txt{color:blue;word-break: break-word;}
+.story-txt{color:#580000;font-weight:bold;}
+
+@media screen and (max-width:767px) {
+	.card-text{ text-align:center;margin-top:-70px;margin-bottom:20px;}
+	.card-text h3{width:60%; text-align:center; display: inline-block;}
+}
+@media screen and (max-width:767px) and (orientation:landscape) {
+	.form-txt-color{padding: 15px;}
+	.inline a{font-size:13px;}
+}
+@media screen and (max-width:767px) and (orientation:portrait) {
+	.login-col-xs .col-xs-6{width:100%;}
+	.form-txt-color{padding: 25px 15px;}
+}
